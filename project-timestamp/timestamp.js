@@ -45,4 +45,3 @@ function isValidDate(date) {
   });
   
   module.exports = router;
-  module.exports = router;
