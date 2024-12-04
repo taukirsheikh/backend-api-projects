@@ -12,10 +12,11 @@ const addExercise = async (req, res) => {
         let exercise = { description, duration, date: new Date(date).toDateString() }
         Object.assign(user, exercise);
         user.log.push(exercise);
+        user.count=user.log.length;
         console.log(user);
         await user.save();
         // Optionally exclude 'log' field from the response:
-        const { log, ...userWithoutLog } = user.toObject();
+        const { log,count, ...userWithoutLog } = user.toObject();
         res.json(userWithoutLog);
     } catch (error) {
         res.status(400).json({ error: error });

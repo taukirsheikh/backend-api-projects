@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    count:{type: Number, default: 0},
     description: {type:String, required: false},
     duration: {type: Number, required: false},
     date: String,
