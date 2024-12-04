@@ -1,4 +1,9 @@
 const mongoose = require('mongoose');
+const exerciseSchema = new mongoose.Schema({
+    description: {type: String, required: true},
+    duration: {type:Number, required: true},
+    date: String,
+})
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -6,6 +11,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    description: {type:String, required: false},
+    duration: {type: Number, required: false},
+    date: String,
+    log:[exerciseSchema]
 },{ versionKey: false });
 
 module.exports = mongoose.model('User', userSchema, 'exercise_tracker');
